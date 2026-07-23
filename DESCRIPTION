@@ -1,6 +1,6 @@
 Package: ctreeMI
 Title: Conditional Inference Trees with Stacked Multiple Imputation
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Phillip", "Sherlock",
     email = "phillip.sherlock@ufl.edu",
     role = c("aut", "cre"),
@@ -22,16 +22,16 @@ Description: Implements the stacked-imputation workflow for conditional
 License: GPL (>= 3)
 Encoding: UTF-8
 RoxygenNote: 7.3.3
-Imports: partykit (>= 1.2-0), mice (>= 3.0.0), methods
+Imports: partykit (>= 1.2-0), mice (>= 3.0.0), stats, methods
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends: R (>= 4.0.0)
 URL: https://github.com/Phillip-Sherlock/ctreeMI
 BugReports: https://github.com/Phillip-Sherlock/ctreeMI/issues
 NeedsCompilation: no
-Packaged: 2026-07-02 21:17:52 UTC; coe-phillip.sherlock
+Packaged: 2026-07-23 17:37:08 UTC; coe-phillip.sherlock
 Author: Phillip Sherlock [aut, cre] (ORCID:
     <https://orcid.org/0000-0003-0433-3681>)
 Maintainer: Phillip Sherlock <phillip.sherlock@ufl.edu>
 Repository: CRAN
-Date/Publication: 2026-07-10 19:00:02 UTC
+Date/Publication: 2026-07-23 17:50:02 UTC
