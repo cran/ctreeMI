@@ -33,9 +33,10 @@ equal to the rank of the covariance matrix of the linear statistic:
   the outcome dimension, which changes from node to node as levels drop out of
   a branch.
 
-`ctree_stacked()` and `prune_stackM()` recover an integer `df` for every
-candidate variable at every node, by inverting the (statistic, p-value) pairs
-`partykit` stored, and cross-check the result against the structural rule.
+0.3.0 recovered a single continuous `df` for the variable that was split on.
+1.0.0 recovers an integer `df` for every candidate variable at every node and
+cross-checks it against the structural rule. `df = 2` (or any number) holds it
+fixed, and `df = "outcome"` uses the outcome dimension throughout.
 
 ## All candidate variables are tested, not only the one split on
 
@@ -49,10 +50,13 @@ and the full per-candidate table is attached as
 
 ## Pruning is bottom-up
 
-An internal node is collapsed only once all of its own internal descendants
-have been collapsed, so a node whose descendant survives the correction keeps
-its split. This is the compression order described in the paper. Trees will
-therefore retain some splits that 0.3.0 removed.
+An internal node is now collapsed only once all of its own internal
+descendants have been collapsed. A node whose descendant survives the
+correction keeps its split even if it would fail on its own. 0.3.0 deleted
+every failing node outright, taking any surviving descendants with it, which
+is more aggressive than the procedure used for the paper. With `df` held
+fixed, `prune_stackM()` now reproduces that procedure exactly; this is
+asserted in the test suite for M = 2, 5, 10 and 30.
 
 ## `prune_stackM()` handles a default `ctree()` fit
 
@@ -67,16 +71,6 @@ detect it, because it re-solved the same equation it had just inverted.
 matching relationship, and `check_stackM_extraction()` now exercises both
 settings and checks the recovered `df` against the structural rule rather than
 against itself.
-
-## `rescale_alpha()` is removed
-
-It implemented the `alpha / M` rule from 0.1.0-0.2.0, which is not the Stack/M
-correction, and by 0.3.0 its entire help page was an explanation of why not to
-use it. Deprecating it kept a function in the index whose only purpose was to
-document a mistake. Code that still calls it will now fail with
-`could not find function "rescale_alpha"`; the replacement is
-[`rescale_statistic()`], or [`ctree_stacked()`], which applies the correct rule
-automatically.
 
 ## Other changes
 
@@ -104,8 +98,6 @@ automatically.
   Data Science*, 1(1), 127-153.
 * `README.md` still described the `alpha / M` rule from 0.1.0-0.2.0 and
   pointed at a repository URL that does not exist; both corrected.
-* Renamed the numerical regression tests to `test-stackM-numerics.R`; a
-  version number in a filename becomes archaeology at the next release.
 * Removed `R/zzz.R`. The `.onLoad()` / `registerS3method()` workaround is
   unnecessary now that `NAMESPACE` carries the `S3method()` entries, and it
   registered only two of the four methods.

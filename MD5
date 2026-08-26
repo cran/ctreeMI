@@ -1,8 +1,8 @@
-9779891092eebd4fd38d50641da904df *DESCRIPTION
+2a3aefbd365710e111ee5ede0fa67b7b *DESCRIPTION
 356dedcc293d314a2f10ad1a7f7750bd *NAMESPACE
-1e4e64d11a397496cf564154067e6166 *NEWS.md
+5ca0b0c2e267176e4af52481f280ca43 *NEWS.md
 4625da38978c55c32055e34cc505a6fc *R/ctreeMI-package.R
-955fc55da287c99aaeb868363b39340f *R/ctree_stacked.R
+6016a4f3ec9c98c9537cff28d965e23b *R/ctree_stacked.R
 3a354d25961b91712a65a3b072a07c9a *R/methods.R
 bcbc4267eb14df6d10014c514928a5e3 *R/node_table.R
 701b68fb80797a6053717c432c76f3cf *R/stackM.R
@@ -10,7 +10,7 @@ bcbc4267eb14df6d10014c514928a5e3 *R/node_table.R
 76161b65639451c966be75488458b3c3 *build/partial.rdb
 7354246c7c79f71254f7783d5347bec7 *man/check_stackM_extraction.Rd
 a278d9abae00d9ac6d3d36d6af3159e6 *man/ctreeMI-package.Rd
-cda8abbb481ed67612205cea99430961 *man/ctree_stacked.Rd
+cc586fa1e296ae2cfe27cb2a718ac4c1 *man/ctree_stacked.Rd
 aa10567db00f5f7ec7f966dd819d62bb *man/node_table.Rd
 f2abbda14870b55e2cedec950d4125f1 *man/print.ctreeMI.Rd
 32d3669f0dfaac069ccce46d58b722da *man/print.ctreeMI_nodes.Rd
